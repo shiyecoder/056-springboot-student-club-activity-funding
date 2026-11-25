@@ -1,0 +1,192 @@
+:root {
+  /* Element Plus 主题变量覆盖：主色必须跟随设计系统酒红，否则所有按钮会退回默认蓝 */
+  --el-color-primary: #8C2F39;
+  --el-color-primary-light-3: #AE6D74;
+  --el-color-primary-light-5: #C6979C;
+  --el-color-primary-light-7: #DCC0C4;
+  --el-color-primary-light-8: #E8D5D7;
+  --el-color-primary-light-9: #F3EAEB;
+  --el-color-primary-dark-2: #70262E;
+  --el-border-radius-base: 6px;
+  --el-font-size-base: 13px;
+
+  --primary: #8C2F39;
+  --primary-dark: #6E222B;
+  --primary-soft: #F6E9EA;
+  --second: #C25B63;
+  --accent: #E8B04B;
+  --bg: #F5F6F7;
+  --card: #FFFFFF;
+  --text: #1F2933;
+  --text-2: #5B6770;
+  --text-3: #98A2AB;
+  --line: #E3E6E8;
+  --ok: #2B7955;
+  --danger: #B02A37;
+  --info: #3A6EA5;
+  --shadow: 0 1px 2px rgba(31, 41, 51, .06), 0 2px 8px rgba(31, 41, 51, .04);
+}
+
+* { box-sizing: border-box; }
+
+html, body, #app { height: 100%; margin: 0; }
+
+body {
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- 管理端骨架：220px 侧栏 + 56px 顶栏 + 独立滚动内容区 ---------- */
+.app { display: flex; height: 100vh; overflow: hidden; }
+
+.side {
+  width: 220px;
+  flex: 0 0 220px;
+  background: var(--primary);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.side .brand {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .5px;
+  border-bottom: 1px solid rgba(255, 255, 255, .12);
+  flex: 0 0 56px;
+}
+
+.side .brand .dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--accent);
+}
+
+.side .menu-wrap { flex: 1; overflow-y: auto; overflow-x: hidden; padding: 6px 0; }
+
+.side .menu-wrap::-webkit-scrollbar { width: 0; }
+
+.side .el-menu { background: transparent; border-right: none; }
+
+.side .el-menu-item, .side .el-sub-menu__title {
+  color: rgba(255, 255, 255, .82);
+  height: 40px;
+  line-height: 40px;
+  font-size: 13px;
+}
+
+.side .el-menu-item:hover, .side .el-sub-menu__title:hover {
+  background: rgba(255, 255, 255, .1);
+  color: #fff;
+}
+
+.side .el-menu-item.is-active {
+  background: var(--primary-dark);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.side .el-sub-menu .el-menu-item { padding-left: 44px !important; }
+
+.main { flex: 1; display: flex; flex-direction: column; min-width: 0; height: 100vh; }
+
+.topbar {
+  height: 56px;
+  flex: 0 0 56px;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+
+.topbar .crumb { font-size: 13px; color: var(--text-2); }
+.topbar .crumb b { color: var(--text); font-weight: 600; }
+
+.topbar .right { display: flex; align-items: center; gap: 14px; }
+
+.content {
+  flex: 1;
+  overflow: auto;
+  padding: 16px 24px 20px;
+}
+
+/* ---------- 通用页面元素 ---------- */
+.sec-h {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.sec-h h2 { font-size: 15px; font-weight: 600; margin: 0; }
+.sec-h .sub { font-size: 11.5px; color: var(--text-3); margin-left: 8px; font-weight: 400; }
+
+.card {
+  background: var(--card);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.card-h {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.card-h h3 { font-size: 13.5px; font-weight: 600; margin: 0; }
+
+.grid { display: grid; gap: 12px; }
+.grid-6 { grid-template-columns: repeat(6, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-2u { grid-template-columns: 1.35fr 1fr; }
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.filter-bar .el-input, .filter-bar .el-select { width: 200px; }
+.filter-bar .el-date-editor { width: 240px; }
+.filter-bar .spacer { flex: 1; }
+
+.tip { font-size: 11.5px; color: var(--text-3); }
+.mono { font-variant-numeric: tabular-nums; }
+
+/* 表格：表头不固定宽度，按内容自适应 */
+.el-table th.el-table__cell { background: #FAFBFB; color: var(--text-2); font-weight: 600; font-size: 11.5px; }
+.el-table .cell { font-size: 12.5px; }
+/* 操作列链接按钮不换行，避免「提异议」被拆成两行 */
+.el-table .el-button.is-link, .el-table .el-button--link { white-space: nowrap; }
+.el-pagination.is-background .el-pager li.is-active { background-color: var(--primary); }
+
+.thumb { width: 40px; height: 30px; border-radius: 4px; object-fit: cover; display: block; }
+/* el-image 的 class 挂在 wrapper 上，内部 img 不受 .thumb 约束，会把票据图压成竖条 */
+.el-table .el-image.thumb { width: 44px; height: 34px; border-radius: 4px; overflow: hidden; }
+.el-table .el-image.thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.avatar-sm { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; display: block; }
+
+.img-empty {
+  width: 40px; height: 30px; border-radius: 4px;
+  background: var(--bg); border: 1px dashed var(--line);
+}
+
+.pager { display: flex; justify-content: flex-end; margin-top: 12px; }
